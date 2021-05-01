@@ -33,6 +33,9 @@
             </div>
         </div>
         @endforeach
+        
+        <div class="d-flex justify-center-center mb-5">
+            {{$posts->links()}}
     </div>
     
 @endsection('content')

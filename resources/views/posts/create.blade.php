@@ -7,10 +7,10 @@
             <h1 class="h5 mb-4">
                 投稿の新規作成
             </h1>
-
+            
             <form method="POST" action="{{ route('posts.store')}}">
                 {{csrf_field()}}
-
+                
                 <fieldset class="mb-4">
                     <div class="form-group">
                         <label for="title">
@@ -20,8 +20,12 @@
                             id="title"
                             name="title"
                             class="form-control"
+                            value="{{old('title')}}"
                             type="text"
-                            >
+                        >
+                        <div class="text-danger">
+                            {{$errors->first('title')}}
+                        </div>
                     </div>
                     <div>
                         <label for="body">
@@ -32,15 +36,17 @@
                             name="body"
                             class="form-control"
                             rows="4"
-                        >
-                        </textarea>
-
+                        >{{old('body')}}</textarea>
+                        <div class="text-danger">
+                            {{$errors->first('body')}}
+                        </div>
+                        
                     </div>
                     <div class="mt-5">
                         <a class="btn btn-secondary" href="{{route('top')}}">
                             キャンセル
                         </a>
-
+                        
                         <button type="submit" class="btn btn-primary">
                             投稿する
                         </button>
@@ -50,4 +56,4 @@
         </div>
     </div>
 
-@endsection('content') 
+@endsection('content')

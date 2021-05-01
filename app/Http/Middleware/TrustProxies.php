@@ -8,14 +8,17 @@ use Illuminate\Http\Request;
 class TrustProxies extends Middleware
 {
     /**
-     * The trusted proxies for this application.
+     * このアプリケーションで信用するプロキシ
      *
-     * @var array|string|null
+     * @var string|array
      */
-    protected $proxies;
+    protected $proxies = [
+        '192.168.1.1',
+        '192.168.1.2',
+    ];
 
     /**
-     * The headers that should be used to detect proxies.
+     * プロキシを検出するために使用するヘッダ
      *
      * @var int
      */
